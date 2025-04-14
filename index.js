@@ -6,6 +6,11 @@ app.use(express.json());
 
 let rewardedUsers = {}; // Store rewarded players temporarily
 
+// ✅ Optional root route for sanity check
+app.get('/', (req, res) => {
+    res.send('Selar payment backend is running ✅');
+});
+
 // Selar redirect link handler (called after payment)
 app.get('/payment-success', (req, res) => {
     const { player_id, product_id } = req.query;
